@@ -7,7 +7,9 @@
 			rel="stylesheet"
 			href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 		/>
+		<base href="<?=PATH?>/">
 		<link rel="stylesheet" href="public/assets/main.css">
+		<link rel="icon" href="image/favicon-32x32.png" sizes="32x32" type="image/png">
 		<title><?=$title ?? 'TITLE'?></title>
 	</head>
 	<body>
@@ -19,7 +21,7 @@
 						<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 							<div class="navbar-nav">
 								<a class="nav-link active text-light" aria-current="page" href="/">Home</a>
-								<a class="nav-link" href="about.php">About</a>
+								<a class="nav-link" href="about">About</a>
 							</div>
 						</div>
 					</div>

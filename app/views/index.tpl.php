@@ -5,7 +5,7 @@
 				<div class="col-md-8">
 					<?php foreach($articles as $user):?>
 						<div class="card mb-3 ">
-							<div class="card-body m-4">
+							<div class="card-body ">
 								<h5 class="card-title"><?=$user['author']?></h5>
 								<h6 class="card-subtitle mb-2 text-body-secondary"><?=$user['date']?></h6>
 								<p class="card-text">
