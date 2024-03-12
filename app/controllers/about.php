@@ -1,8 +1,5 @@
 <?php 
 
-require_once 'funcs.php';
-
-
 $title = 'About';
 
 
@@ -19,4 +16,4 @@ $array = array(
     array("title" => "Гуляющие Собаки Пляжа", "slug" => "<a href=\"#\">Гуляющие Собаки Пляжа</a>")
 );
 
-require_once 'app/views/about.tpl.php';
+require_once VIEWS . 'about.tpl.php';

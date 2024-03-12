@@ -1,4 +1,4 @@
-<?php require_once 'app/views/incs/header.php' ?> 
+<?php require_once VIEWS . '/incs/header.php' ?> 
 
 	<main class="main py-3">
 		<div class="container">
@@ -6,8 +6,8 @@
 				<div class="col-md-8">
 					<?=$post?>
 				</div>
-				<?php require_once 'app/views/incs/sidebar.php'?>	
+				<?php require_once 'incs/sidebar.php'?>	
 			</div>
 		</div>
 	</main>
-<?php require_once 'app/views/incs/footer.php'?>
+<?php require_once VIEWS . '/incs/footer.php'?>

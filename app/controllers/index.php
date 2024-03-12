@@ -1,7 +1,5 @@
 <?php 
 
-require_once 'funcs.php';
-
 $title = 'My Home';
 
 $articles = array(
@@ -12,6 +10,7 @@ $articles = array(
     array("author" => "Mike Williams", "date" => "2022-01-20", "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
 );
 
+
 $array = array(
     array("title" => "Солнечные Зайчики Парка", "slug" => "<a href=\"#\">Солнечные Зайчики Парка</a>"),
     array("title" => "Поющие Птицы Леса", "slug" => "<a href=\"#\">Поющие Птицы Леса</a>"),
@@ -21,4 +20,4 @@ $array = array(
 );
 
 
-require_once 'app/views/index.tpl.php';
+require_once VIEWS . '/index.tpl.php';
