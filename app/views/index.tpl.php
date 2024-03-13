@@ -6,13 +6,12 @@
 					<?php foreach($articles as $user):?>
 						<div class="card mb-3 ">
 							<div class="card-body ">
-								<h5 class="card-title"><?=$user['author']?></h5>
+								<h5 class="card-title"><?=$user['title']?></h5>
 								<h6 class="card-subtitle mb-2 text-body-secondary"><?=$user['date']?></h6>
 								<p class="card-text">
 									<?=$user['content']?>
 								</p>
-								<a href="#" class="card-link">Card link</a>
-								<a href="#" class="card-link">Another link</a>
+								<a href="post?id=<?=$user['id']?>" class="card-link">Card link</a>
 							</div>
 						</div>
 					<?php endforeach;?>
