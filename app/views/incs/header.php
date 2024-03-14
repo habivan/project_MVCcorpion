@@ -22,6 +22,7 @@
 							<div class="navbar-nav">
 								<a class="nav-link active text-light" aria-current="page" href="/">Home</a>
 								<a class="nav-link" href="about">About</a>
+								<a class="nav-link" href="posts/create">New Post</a>
 							</div>
 						</div>
 					</div>
