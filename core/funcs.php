@@ -5,6 +5,12 @@ function damp($data){
     var_dump($data);
     echo'</pre>';
 }
+function damp_r($data){
+    
+    echo'<pre>';
+    print_r($data);
+    echo'</pre>';
+}
 
 function dd($data){
     damp($data);
