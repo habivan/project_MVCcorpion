@@ -1,11 +1,10 @@
 <?php 
 use myfrm\Validator;
+global $db;
+
 /**
  * @var \myfrm\Db $db
  */
-
-
-if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
   $fillable = ['title', 'excerpt', 'content'];
   $data = load($fillable);
@@ -35,9 +34,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         $_SESSION['error'] = 'DB Error';
       }
     }
-    redirect();
+    redirect('/');
+  }else {
+    require_once VIEWS . '/posts/create.tpl.php';
   }
-}
-
-$title = "Blog :: New Posts";
-require_once VIEWS . '/post-create.tpl.php';

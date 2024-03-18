@@ -1,5 +1,5 @@
 <?php 
-
+global $db;
 /**
  * @var Db $db
  */
@@ -10,4 +10,4 @@ $post = $db->query("select * from posts where id = :id limit 1", [':id' => $id])
 
 
 $title = "Blog :: {$post['title']}";
-require_once VIEWS . '/post.tpl.php';
+require_once VIEWS . '/posts/show.tpl.php';

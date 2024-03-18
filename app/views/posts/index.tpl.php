@@ -11,7 +11,7 @@
 								<p class="card-text">
 									<?=$user['content']?>
 								</p>
-								<a href="post?id=<?=$user['id']?>" class="card-link">Card link</a>
+								<a href="posts?id=<?=$user['id']?>" class="card-link">Card link</a>
 							</div>
 						</div>
 					<?php endforeach;?>
