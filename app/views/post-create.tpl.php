@@ -1,4 +1,10 @@
-<?php require_once VIEWS . '/incs/header.php' ?> 
+<?php 
+require_once VIEWS . '/incs/header.php' 
+
+/**
+ * @var \myfrm\Validator $validation
+ */
+?> 
 
 	<main class="main py-3">
 		<div class="container">
@@ -10,30 +16,18 @@
               <label for="exampleFormControlInput1" class="form-label">Title</label>
               <input type="title" name="title" class="form-control" id="exampleFormControlInput1" placeholder="Title" 
               value="<?=old('title')?>">
-              <?php if(isset($errors['title'])):?>
-                <div id="validationServer03Feedback" class="invalid-feedback d-block">
-                  <?=$errors['title'];?>
-                </div>
-              <?php endif;?>
+              <?=isset($validation) ? $validation->listErrors('title') : '' ?>
             </div>
             <div class="mb-3">
               <label for="exampleFormControlInput1" class="form-label">Excerpt</label>
               <input type="excerpt" name="excerpt" class="form-control" id="exampleFormControlInput1" placeholder="Excerpt"
               value="<?=old('excerpt')?>">
-              <?php if(isset($errors['excerpt'])):?>
-                <div  class="invalid-feedback d-block">
-                  <?=$errors['excerpt'];?>
-                </div>
-              <?php endif;?>
+              <?=isset($validation) ? $validation->listErrors('excerpt') : '' ?>
             </div>
             <div class="mb-3">
               <label for="exampleFormControlTextarea1" class="form-label">Post</label>
               <textarea class="form-control" name="content" id="exampleFormControlTextarea1" rows="5"><?=old('content')?></textarea>
-              <?php if(isset($errors['content'])):?>
-                <div id="validationServer03Feedback" class="invalid-feedback d-block">
-                  <?=$errors['content'];?>
-                </div>
-              <?php endif;?>
+              <?=isset($validation) ? $validation->listErrors('content') : '' ?>
             </div>
             <div class="mb-3">
               <button title="submit" class="btn btn-primary">Create</button>

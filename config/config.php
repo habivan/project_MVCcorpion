@@ -2,7 +2,7 @@
 
 define('ROOT', dirname(__DIR__));
 define('PUB', ROOT . '/public');
-define('CORE', ROOT . '/core');
+define('CORE', ROOT . '/vendor/myfrm/core');
 define('CONFIG', ROOT . '/config');
 define('APP', ROOT . '/app');
 define('CONTROLLERS', APP . '/controllers');

@@ -1,7 +1,7 @@
 <?php 
-require_once CORE . '/classes/Validator.php';
+use myfrm\Validator;
 /**
- * @var Db $db
+ * @var \myfrm\Db $db
  */
 
 
@@ -27,30 +27,15 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
       'min' => 100,
     ],
   ]);
-  if($validator->hasErrors()){
-    damp_r($validator->getErrors());
-  }else {
-    echo 'SUCCES';
-  }
-  die;
-  // if(empty($data['title'])){
-  //   $errors['title'] = 'Title is register';
-  // }
-  // if(empty($data['excerpt'])){
-  //   $errors['excerpt'] = 'Excerpt is register';
-  // }
-  // if(empty($data['content'])){
-  //   $errors['content'] = 'Content is register';
-  // }
-
-  if(empty($errors)){
-    if($db->query("insert into posts (title, excerpt, content) value (:title, :excerpt, :content)", $data)){
-      echo 'ok';
-    }else {
-      echo 'DB Error';
+  if(!$validator->hasErrors()){
+    if(empty($errors)){
+      if($db->query("insert into posts (title, excerpt, content) value (:title, :excerpt, :content)", $data)){
+        $_SESSION['success'] = 'OK';
+      }else {
+        $_SESSION['error'] = 'DB Error';
+      }
     }
-    
-    // redirect('/posts/create');
+    redirect();
   }
 }
 

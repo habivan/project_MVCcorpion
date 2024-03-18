@@ -1,0 +1,16 @@
+{
+	"name": "ivan/mvc",
+	"autoload": {
+		"psr-4": {
+			"Ivan\\Mvc\\": "src/",
+			"myfrm\\": "vendor/myfrm/core/classes"
+		}
+	},
+	"authors": [
+		{
+			"name": "habivan",
+			"email": "xdolx@mail.ru"
+		}
+	],
+	"require": {}
+}
