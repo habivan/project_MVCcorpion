@@ -18,12 +18,28 @@
 				<nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
 					<div class="container-fluid">
 						<a class="navbar-brand" href="/">Navbar</a>
-						<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-							<div class="navbar-nav">
-								<a class="nav-link active text-light" aria-current="page" href="/">Home</a>
-								<a class="nav-link" href="about">About</a>
-								<a class="nav-link" href="posts/create">New Post</a>
-							</div>
+						 <div class="collapse navbar-collapse" id="navbarSupportedContent">
+							<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+								<li class="nav-item">
+									<a class="nav-link active" aria-current="page" href="/">Home</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="about">About</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="posts/create">New Post</a>
+								</li>
+							</ul>
+
+							<ul class="d-flex text-white align-items-center list-unstyled m-0 gap-3">
+								<?php if (check_auth()): ?>
+									<li><?= $_SESSION['user']['name']; ?></li>
+									<li><a class="nav-link" href="logout">Logout</a></li>
+								<?php else: ?>
+									<li><a class="nav-link" href="register">Register</a></li>
+									<li><a class="nav-link" href="login">Login</a></li>
+								<?php endif; ?>
+							</ul>
 						</div>
 					</div>
 				</nav>

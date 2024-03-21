@@ -2,13 +2,13 @@
 
 use myfrm\App;
 
-function damp($data){
+function dump($data){
     
     echo'<pre>';
     var_dump($data);
     echo'</pre>';
 }
-function damp_r($data){
+function dump_r($data){
     
     echo'<pre>';
     print_r($data);
@@ -16,7 +16,7 @@ function damp_r($data){
 }
 
 function dd($data){
-    damp($data);
+    dump($data);
     die;
 }
 
@@ -67,4 +67,8 @@ function get_alerts(){
 
 function db(): \myfrm\Db {
     return \myfrm\App::get(\myfrm\Db::class);
+}
+
+function check_auth(){
+    return isset($_SESSION['user']);
 }
