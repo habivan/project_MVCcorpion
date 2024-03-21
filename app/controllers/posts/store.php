@@ -1,10 +1,6 @@
 <?php 
+$db = \myfrm\App::get(\myfrm\Db::class);
 use myfrm\Validator;
-global $db;
-
-/**
- * @var \myfrm\Db $db
- */
 
   $fillable = ['title', 'excerpt', 'content'];
   $data = load($fillable);
