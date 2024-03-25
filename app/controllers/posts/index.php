@@ -5,6 +5,13 @@ $title = 'My Home';
 
 $db = \myfrm\App::get(\myfrm\Db::class);
 
+$page = $_GET['page'] ?? 1;
+$per_page = 3;
+$total = $db->query("SELECT count(*) FROM posts")->getColumn();
+$pagination =  new \myfrm\Pagination($page, $per_page, $total);
+
+$start = $pagination->getStart();
+
 $per_page = 3;
 $total = $db->query("SELECT count(*) FROM posts")->getColumn();
 $pages_cnt = ceil($total / $per_page);
