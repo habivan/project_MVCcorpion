@@ -21,6 +21,7 @@ $router->get('about', 'about.php');
 $router->get('contract', 'contract.php');
 
 //user
-$router->get('register', 'users/register.php')->only('gust');
+$router->add('register', 'users/register.php',['get', 'post'])->only('gust');
+$router->post('register', 'users/store.php')->only('gust');
 $router->get('login', 'users/login.php');
 $router->get('logout', 'users/logout.php')->only('auth');

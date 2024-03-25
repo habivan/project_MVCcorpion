@@ -16,12 +16,15 @@
 						</div>
 					<?php endforeach;?>
 					<hr>
-					<?php 
-						// for ($i=1; $i <= $pages_cnt; $i++) { 
-						// 	echo "<a href='?page={$i}'>{$i}</a>";
-						// } 
-						echo $pagination;
-					?>
+					<!-- <nav aria-label="Page navigation example"><ul class="pagination"> -->
+						<?php 
+							// for ($i=1; $i <= $pages_cnt; $i++) { 
+								// echo "<a href='?page={$i}'>{$i}</a>";
+							// 	echo '<li class="page-item active"><a class="page-link" href="?page='.$i.'">' . $i . '</a></li>';
+							// } 
+							echo $pagination;
+						?>
+					<!-- </ul></nav> -->
 				</div>
 				<?php require_once VIEWS . '/incs/sidebar.php'?>	
 			</div>

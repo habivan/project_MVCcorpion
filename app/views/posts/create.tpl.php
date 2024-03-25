@@ -33,7 +33,6 @@ require_once VIEWS . '/incs/header.php'
               <button title="submit" class="btn btn-primary">Create</button>
             </div>
           </form>
-
 				</div>
 			</div>
 		</div>

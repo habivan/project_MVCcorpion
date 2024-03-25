@@ -1,0 +1,2 @@
+[2024-03-25 22:50:51] DB Error:SQLSTATE[42S02]: Base table or view not found: 1146 Table 'test.users2' doesn't exist
+[2024-03-25 23:05:35] DB Error:SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '@mailinator.com' at line 1

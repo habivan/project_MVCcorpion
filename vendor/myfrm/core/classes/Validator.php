@@ -6,13 +6,16 @@ use PDO;
 
 class Validator {
   protected $errors = [];
-  protected $rules_list = ['required', 'min', 'max', 'email'];
+  protected $data_items;
+  protected $rules_list = ['required', 'min', 'max', 'email', 'match', 'unique',];
   protected $massages = [
     'required' => 'The :fieldname: field id required error',
     'min' => 'The :fieldname: field id min error on :rulevalue: characters',
     'min' => 'The :fieldname: field id min error on :rulevalue: characters',
     'max' => 'The :fieldname: field id max error ',
     'email' => 'The :fieldname: field id email error',
+    'match' => 'The :fieldname: field must match :rulevalue: field',
+    'unique' => 'The :fieldname: is already taken',
   ];
 
   public function validate($date = [], $rules = []){
@@ -79,5 +82,12 @@ class Validator {
   }
   protected function email($value, $rule_value){
     return filter_var($value, FILTER_VALIDATE_EMAIL);
+  }
+  protected function match($value, $rule_value){
+      return $value === $this->data_items[$rule_value];
+  }
+  protected function unique($value, $rule_value){
+    $data = explode(':', $rule_value);
+    return (!db()->query("SELECT {$data[1]} FROM {$data[0]} WHERE {$data[1]} =?", [$value])->getColumn());
   }
 }
