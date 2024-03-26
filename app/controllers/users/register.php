@@ -8,9 +8,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 $db = \myfrm\App::get(\myfrm\Db::class);
 
-  $fillable = ['name', 'email', 'password'];
+  $fillable = ['name', 'email', 'password',];
   $data = load($fillable);
-  
+
+  if(isset($_FILES['avatar']) and $_FILES['avatar']['error'] === 0){
+    $data['avatar'] = $_FILES['avatar'];
+  }else {
+    $data['avatar'] = [];
+  }
+
   $validator = new Validator();
   $validation = $validator->validate($data, $rules = [
     'name' => [
@@ -26,7 +32,14 @@ $db = \myfrm\App::get(\myfrm\Db::class);
       'required' => true,
       'min' => 6,
     ],
+    'avatar' => [
+      'required' => true,
+      'ext' => 'jpg|gif',
+      'size' => 1048576,
+    ]
   ]);
+
+  dd($validation->getErrors());
   if(!$validator->hasErrors()){
     $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
     if(empty($errors)){
