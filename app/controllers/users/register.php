@@ -33,17 +33,31 @@ $db = \myfrm\App::get(\myfrm\Db::class);
       'min' => 6,
     ],
     'avatar' => [
-      'required' => true,
+      // 'required' => true,
       'ext' => 'jpg|gif',
       'size' => 1048576,
     ]
   ]);
 
-  dd($validation->getErrors());
   if(!$validator->hasErrors()){
     $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
     if(empty($errors)){
-      if($db->query("insert into users (name, email, password) value (:name, :email, :password)", $data)){
+      if($db->query("insert into users (name, email, password) value (?, ?, ?)", [$data['name'], $data['email'], $data['password']])){
+        if(!empty($data['avatar']['name'])){
+          $id = $db->getInsertId();
+          $file_ext = get_file_ext($data['avatar']['name']);
+          $dir = '/avatars/' . date('Y') . '/' . date('m') . '/' . date('d');
+          if(!is_dir(UPLOADS . $dir)){
+            mkdir(UPLOADS . $dir, 0755, true);
+          }
+          $file_path = UPLOADS . "{$dir}/avatar-{$id}.{$file_ext}";
+          $file_url = "/uploads{$dir}/avatar-{$id}.{$file_ext}";
+          if(move_uploaded_file($data['avatar']['tmp_name'], $file_path)){
+            $db->query("UPDATE users SET avatar = ? WHERE id = ?", [$file_url, $id]);
+          }else {
+            error_log("[".date('Y-m-d H:i:s')."] Error upload avatar ". PHP_EOL, 3, ERRORS_LOG_FILE);
+          }
+        }
         $_SESSION['success'] = 'OK';
       }else {
         $_SESSION['error'] = 'Register Error';

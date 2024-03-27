@@ -11,20 +11,12 @@ class ComposerStaticInite34efa9fe5def6dcf2e545469bcaac4f
         array (
             'myfrm\\' => 6,
         ),
-        'I' => 
-        array (
-            'Ivan\\Mvc\\' => 9,
-        ),
     );
 
     public static $prefixDirsPsr4 = array (
         'myfrm\\' => 
         array (
             0 => __DIR__ . '/..' . '/myfrm/core/classes',
-        ),
-        'Ivan\\Mvc\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src',
         ),
     );
 

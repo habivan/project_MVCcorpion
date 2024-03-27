@@ -1,5 +1,6 @@
 body {
 	min-width: 320px;
+	background-color: black;
 }
 
 html,
@@ -15,4 +16,9 @@ body {
 
 .main {
 	flex: 1 1 auto;
+}
+
+.avatar {
+	width: 40px;
+	border-radius: 50%;
 }

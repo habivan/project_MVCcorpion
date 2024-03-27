@@ -7,5 +7,4 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'myfrm\\' => array($vendorDir . '/myfrm/core/classes'),
-    'Ivan\\Mvc\\' => array($baseDir . '/src'),
 );

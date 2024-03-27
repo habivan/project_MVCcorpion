@@ -9,7 +9,7 @@ use PDOStatement;
 final class Db {
   
   private $connection;
-  private  $stmt;
+  private PDOStatement $stmt;
   private static $instance = null;
 
   private function __construct(){
@@ -73,5 +73,9 @@ final class Db {
 
     public function getColumn(){
     return $this->stmt->fetchColumn();
+  }
+
+  public function getInsertId(){
+    return $this->connection->lastInsertId();
   }
 }

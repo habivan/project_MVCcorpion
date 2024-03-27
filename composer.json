@@ -2,7 +2,6 @@
 	"name": "ivan/mvc",
 	"autoload": {
 		"psr-4": {
-			"Ivan\\Mvc\\": "src/",
 			"myfrm\\": "vendor/myfrm/core/classes"
 		}
 	},
@@ -12,5 +11,7 @@
 			"email": "xdolx@mail.ru"
 		}
 	],
-	"require": {}
+	"require": {
+		"ext-pdo": "*"
+	}
 }
